@@ -340,7 +340,60 @@ Cryptocurrency investments carry inherent risks. The $TEOS Private Contribution 
 
 The project team makes no guarantees about future token value, exchange listings, or project success. All participants contribute at their own risk and should only contribute amounts they can afford to lose.
 
+
 ---
+
+## 🧠 Architecture Highlights
+
+- 🌉 Wallet connection (Phantom, Solflare) via frontend
+- 🧾 Contribution logging and wallet verification on backend
+- 🛠️ Anchor-based Solana smart contract for token management
+- 🔄 Future-ready for airdrops, mining apps, staking logic
+
+---
+
+## 🌍 What Comes Next?
+
+- 📲 **Mining App** to onboard new holders and distribute airdrops
+- 🎯 Future presales (non-whitelist) to grow adoption
+- 🌐 After 10,000 holders:
+  - ✅ **DEX and CEX** listings (OKX, Binance)
+  - ✅ **CertiK audit**
+  - ✅ **Marketing + Global Campaigns**
+
+---
+
+## 📲 Stay Connected
+
+- 🐦 Twitter/X: [@TeosEgypt](https://x.com/TeosEgypt)
+- 📣 Telegram: [@elmahrosapi](https://t.me/elmahrosapi)
+- 📘 Facebook: [TeosEgypt](https://facebook.com/TeosEgypt)
+
+---
+
+## 🧠 Credits
+
+Built by **@KING_TEOS_EGYPT** and the decentralized community.
+
+---
+
+## 🛠 Tech Stack
+
+- **Frontend**: React + Vite
+- **Backend**: Python (FastAPI or Flask)
+- **Blockchain**: Solana (Rust / Anchor)
+- **Deployment**: Vercel + Railway/Render (optional)
+
+---
+
+## 📂 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+**Join the movement. Hold the future. $TEOS is Egypt's decentralized gateway to global Web3.**
+
 
 **Final Thought** 👌
 
