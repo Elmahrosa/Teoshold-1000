@@ -1,0 +1,292 @@
+Alright boss, here’s a full structured overview and starter code snippets for **all parts** of your \$TEOS Private Contribution Pool system — smart contract, frontend, backend, and README.
+
+---
+
+# 1. Anchor Smart Contract (Rust) — \$TEOS Contribution Pool
+
+```rust
+use anchor_lang::prelude::*;
+use anchor_lang::solana_program::system_program;
+
+declare_id!("YourProgramIdHere...");
+
+#[program]
+pub mod teos_contribution_pool {
+    use super::*;
+
+    pub fn initialize(ctx: Context<Initialize>, admin: Pubkey, goal: u64) -> Result<()> {
+        let pool = &mut ctx.accounts.pool_state;
+        pool.admin = admin;
+        pool.goal = goal;
+        pool.total_contributors = 0;
+        pool.total_sol_collected = 0;
+        pool.locked_sol = 0;
+        pool.contributors = Vec::new();
+        Ok(())
+    }
+
+    pub fn contribute(ctx: Context<Contribute>, amount: u64) -> Result<()> {
+        let pool = &mut ctx.accounts.pool_state;
+
+        require!(amount == 50_000_000_000, PoolError::InvalidAmount); // 50 SOL in lamports (1 SOL = 1e9 lamports)
+        require!(pool.total_contributors < pool.goal, PoolError::GoalReached);
+
+        // Transfer SOL from contributor to pool account
+        **ctx.accounts.pool_state.to_account_info().try_borrow_mut_lamports()? += amount;
+        **ctx.accounts.contributor.try_borrow_mut_lamports()? -= amount;
+
+        pool.total_sol_collected += amount;
+        pool.total_contributors += 1;
+        pool.locked_sol += amount / 2; // 50% locked
+        pool.contributors.push(ctx.accounts.contributor.key());
+
+        // Mint 10,000 $TEOS tokens to contributor here (SPL minting logic)
+
+        Ok(())
+    }
+
+    pub fn withdraw(ctx: Context<Withdraw>, amount: u64) -> Result<()> {
+        let pool = &mut ctx.accounts.pool_state;
+        require!(ctx.accounts.admin.key() == pool.admin, PoolError::Unauthorized);
+
+        // Allow admin to withdraw up to total_sol_collected / 2 before goal reached
+        require!(amount <= pool.total_sol_collected / 2, PoolError::ExcessWithdrawal);
+
+        **ctx.accounts.pool_state.to_account_info().try_borrow_mut_lamports()? -= amount;
+        **ctx.accounts.admin.try_borrow_mut_lamports()? += amount;
+
+        pool.total_sol_collected -= amount;
+
+        Ok(())
+    }
+}
+
+#[account]
+pub struct PoolState {
+    pub admin: Pubkey,
+    pub goal: u64,
+    pub total_contributors: u64,
+    pub total_sol_collected: u64,
+    pub locked_sol: u64,
+    pub contributors: Vec<Pubkey>,
+}
+
+#[derive(Accounts)]
+pub struct Initialize<'info> {
+    #[account(init, payer = admin, space = 8 + 32 + 8*4 + 4 + (32 * 10000))] // adjust size for contributors vec
+    pub pool_state: Account<'info, PoolState>,
+    #[account(mut)]
+    pub admin: Signer<'info>,
+    pub system_program: Program<'info, System>,
+}
+
+#[derive(Accounts)]
+pub struct Contribute<'info> {
+    #[account(mut)]
+    pub pool_state: Account<'info, PoolState>,
+    #[account(mut)]
+    pub contributor: Signer<'info>,
+    pub system_program: Program<'info, System>,
+}
+
+#[derive(Accounts)]
+pub struct Withdraw<'info> {
+    #[account(mut)]
+    pub pool_state: Account<'info, PoolState>,
+    #[account(mut)]
+    pub admin: Signer<'info>,
+}
+
+#[error_code]
+pub enum PoolError {
+    #[msg("Contribution amount must be exactly 50 SOL.")]
+    InvalidAmount,
+    #[msg("Contribution goal has been reached.")]
+    GoalReached,
+    #[msg("Unauthorized.")]
+    Unauthorized,
+    #[msg("Withdrawal amount exceeds allowed limit.")]
+    ExcessWithdrawal,
+}
+```
+
+---
+
+# 2. Frontend (Next.js + Phantom + Solana SPL)
+
+```tsx
+// pages/index.tsx
+import { useEffect, useState } from "react";
+import { Connection, PublicKey, clusterApiUrl } from "@solana/web3.js";
+import { useWallet, WalletProvider } from "@solana/wallet-adapter-react";
+import { PhantomWalletAdapter } from "@solana/wallet-adapter-wallets";
+import { WalletModalProvider, WalletMultiButton } from "@solana/wallet-adapter-react-ui";
+import * as anchor from "@project-serum/anchor";
+
+export default function Home() {
+  const [isWhitelisted, setIsWhitelisted] = useState(false);
+  const [contributionStatus, setContributionStatus] = useState("");
+  const wallet = useWallet();
+  const connection = new Connection(clusterApiUrl("mainnet-beta"));
+
+  // Your whitelist check function, e.g. call backend API or check on-chain
+  async function checkWhitelist(walletAddress: string) {
+    const response = await fetch(`/api/check-whitelist?address=${walletAddress}`);
+    const data = await response.json();
+    setIsWhitelisted(data.isWhitelisted);
+  }
+
+  // Call this when user connects wallet
+  useEffect(() => {
+    if (wallet.publicKey) {
+      checkWhitelist(wallet.publicKey.toBase58());
+    }
+  }, [wallet.publicKey]);
+
+  async function handleContribute() {
+    if (!wallet.publicKey) return alert("Please connect wallet");
+
+    setContributionStatus("Processing...");
+
+    try {
+      // Build and send transaction to Anchor program (smart contract) here
+      // Use Anchor client or web3.js to send 50 SOL to pool
+
+      setContributionStatus("Contribution successful! You received 10,000 $TEOS.");
+    } catch (err) {
+      setContributionStatus("Contribution failed: " + err.message);
+    }
+  }
+
+  return (
+    <WalletProvider wallets={[new PhantomWalletAdapter()]} autoConnect>
+      <WalletModalProvider>
+        <div className="container mx-auto p-8">
+          <WalletMultiButton />
+          {wallet.connected && (
+            <>
+              <h2>Welcome, {wallet.publicKey?.toBase58()}</h2>
+              {isWhitelisted ? (
+                <button onClick={handleContribute} className="btn-primary">
+                  Contribute 50 SOL
+                </button>
+              ) : (
+                <p>You are not whitelisted to contribute.</p>
+              )}
+              <p>{contributionStatus}</p>
+            </>
+          )}
+        </div>
+      </WalletModalProvider>
+    </WalletProvider>
+  );
+}
+```
+
+---
+
+# 3. Backend (Express) — Whitelist and Contributions Tracking
+
+```js
+const express = require('express');
+const app = express();
+const port = 3000;
+
+const whitelist = new Set([
+  "walletAddress1",
+  "walletAddress2",
+  // ... more whitelisted wallet addresses
+]);
+
+app.use(express.json());
+
+app.get('/api/check-whitelist', (req, res) => {
+  const address = req.query.address;
+  if (!address) return res.status(400).json({ error: "Missing address param" });
+
+  const isWhitelisted = whitelist.has(address.toLowerCase());
+  res.json({ isWhitelisted });
+});
+
+app.post('/api/record-contribution', (req, res) => {
+  const { walletAddress, amount } = req.body;
+  if (!walletAddress || !amount) {
+    return res.status(400).json({ error: "Missing walletAddress or amount" });
+  }
+  // Record contribution in your DB or memory
+  console.log(`Contribution from ${walletAddress}: ${amount} lamports`);
+
+  res.json({ success: true });
+});
+
+app.listen(port, () => {
+  console.log(`Backend API running at http://localhost:${port}`);
+});
+```
+
+---
+
+# 4. README.md (Example)
+
+````md
+# $TEOS Private Contribution Pool
+
+## Overview
+This project implements a private contribution pool for $TEOS token presale. Only verified $TEOS holders can participate by contributing exactly 50 SOL each, receiving 10,000 $TEOS tokens.
+
+## Components
+- Anchor smart contract (`programs/teos_contribution_pool`)
+- Next.js frontend with Phantom wallet connection (`app/` or `frontend/`)
+- Express backend API for whitelist verification and contribution tracking (`backend/`)
+
+## Setup
+
+### Smart Contract
+```bash
+cd programs/teos_contribution_pool
+anchor build
+anchor deploy
+````
+
+### Frontend
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+### Backend
+
+```bash
+cd backend
+npm install
+node server.js
+```
+
+## Usage
+
+* Admin deploys smart contract and sets contribution goal
+* Users connect wallet, verify whitelist, and contribute 50 SOL
+* Admin can withdraw unlocked SOL for marketing
+* After goal reached, locked SOL is released accordingly
+
+## License
+
+MIT
+
+```
+
+---
+
+# Next Steps?
+
+- **Deploy Anchor smart contract**: I can help generate the full Anchor.toml and deploy commands  
+- **Complete frontend minting logic**: Integrate SPL token mint and transaction signing  
+- **Add backend DB (MongoDB/Firebase) for persistence**  
+- **Set up GitHub repo with Actions for CI/CD**  
+
+Just say **“Deploy contract”**, **“Complete frontend”**, or **“Setup backend DB”** — or if you want full repo files zipped or GitHub links. 
+
+Boss, I’m ready to roll! What’s next?
+```

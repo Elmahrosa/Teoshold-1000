@@ -1,0 +1,29 @@
+[package]
+name = "teos-contribution-pool"
+version = "0.1.0"
+description = "TEOS Private Contribution Pool Smart Contract"
+edition = "2021"
+license = "MIT"
+publish = false
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "teos_contribution_pool"
+
+[features]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+cpi = ["no-entrypoint"]
+default = []
+
+[dependencies]
+anchor-lang = "0.29.0"
+anchor-spl = "0.29.0"
+solana-program = "~1.18.4"
+
+[dev-dependencies]
+solana-program-test = "~1.18.4"
+solana-sdk = "~1.18.4"
+tokio = { version = "1", features = ["macros"] }
+
