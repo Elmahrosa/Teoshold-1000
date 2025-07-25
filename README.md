@@ -1,4 +1,49 @@
 # $TEOS Private Contribution Pool
+# 🐪 $TEOS – Teos Egypt Network 🇪🇬🌍🚀
+
+Welcome to the **$TEOS Project**, a 100% decentralized ecosystem built on the Solana blockchain, dedicated to empowering **real holders** with transparency, immutability, and zero manipulation.
+
+> 🔐 “Built for holders, not manipulators.”
+
+---
+
+## 🌐 Official Website
+👉 [https://teosegypt.com](https://teosegypt.com)
+
+---
+
+## 📌 What Is $TEOS?
+
+**$TEOS** is a fixed-supply Solana token designed to reward early adopters through a **whitelist contribution pool**, decentralized architecture, and long-term holder incentives.
+
+---
+
+## 💎 Why $TEOS Is Different
+
+- ✅ 100% **Decentralized**
+- 🔒 **No mint authority**
+- 🧊 **No freeze authority**
+- 🔁 **Fixed supply forever**
+- 🛡️ Built for **real holders**, not whales or bots
+
+---
+
+## 🚀 Contribution Pool Logic
+
+### 📝 How It Works:
+- 💰 **Contribute $50 in SOL** → Receive **10,000 $TEOS**
+- 🔐 **50% of all SOL** is locked until we reach **10,000 holders**
+- ⚡️ Early trading unlocks at **500 verified contributors**
+- 🎯 From **500 to 1,000 contributors**: a **private trading phase** begins
+- 🔓 After **1,000 verified wallets**, public launch follows
+
+> 🎟️ Only the first 1,000 verified wallets will enter — the gate closes forever.
+
+---
+
+## 🧱 Project Structure
+
+
 
 ## 🚨 Exclusive Whitelist Contribution Pool for Real Holders
 
