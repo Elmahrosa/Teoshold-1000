@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>$TEOS Whitelist Contribution Pool | TEOS Egypt</title>
+  <title>$TEOS Whitelist Contribution Pool | TEOS Egypt - From Egypt to the World</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
@@ -51,10 +51,16 @@
       color: #FFD700;
     }
 
-    .logo img {
+    .logo-img {
       width: 40px;
       height: 40px;
       border-radius: 50%;
+      background: linear-gradient(45deg, #FFD700, #FFA500);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: #000;
     }
 
     .nav-links {
@@ -73,6 +79,34 @@
       color: #FFD700;
     }
 
+    /* Alert Banner */
+    .alert-banner {
+      background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      font-weight: 600;
+      position: relative;
+      overflow: hidden;
+      margin-top: 70px;
+    }
+
+    .alert-banner::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      animation: shine 2s infinite;
+    }
+
+    @keyframes shine {
+      0% { left: -100%; }
+      100% { left: 100%; }
+    }
+
     /* Hero Section */
     .hero {
       min-height: 100vh;
@@ -83,6 +117,7 @@
       background: radial-gradient(ellipse at center, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
       position: relative;
       overflow: hidden;
+      padding-top: 100px;
     }
 
     .hero::before {
@@ -223,6 +258,20 @@
       font-size: 1.3rem;
     }
 
+    /* Infographic Section */
+    .infographic-section {
+      text-align: center;
+      margin: 3rem 0;
+    }
+
+    .infographic-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      border: 2px solid rgba(255, 215, 0, 0.2);
+    }
+
     /* TEOS Network Projects Grid */
     .projects-grid {
       display: grid;
@@ -249,20 +298,6 @@
       font-size: 2rem;
       color: #FFD700;
       margin-bottom: 1rem;
-    }
-
-    /* Infographic Section */
-    .infographic-section {
-      text-align: center;
-      margin: 3rem 0;
-    }
-
-    .infographic-image {
-      max-width: 100%;
-      height: auto;
-      border-radius: 20px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-      border: 2px solid rgba(255, 215, 0, 0.2);
     }
 
     /* Wallet Connection */
@@ -518,31 +553,94 @@
       font-weight: 600;
     }
 
-    /* Alert Banner */
-    .alert-banner {
-      background: linear-gradient(45deg, #ff6b6b, #ff8e53);
-      color: #fff;
+    /* Elmahrosa Section */
+    .elmahrosa-section {
+      background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
+      border-radius: 20px;
+      padding: 3rem;
+      margin: 3rem 0;
+      border: 1px solid rgba(255, 215, 0, 0.2);
+    }
+
+    .platforms-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .platform-card {
+      background: linear-gradient(145deg, #2a2a2a, #3a3a3a);
+      padding: 1.5rem;
+      border-radius: 15px;
       text-align: center;
-      padding: 1rem;
-      font-weight: 600;
-      position: relative;
-      overflow: hidden;
+      border: 1px solid rgba(255, 215, 0, 0.1);
+      transition: all 0.3s;
     }
 
-    .alert-banner::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-      animation: shine 2s infinite;
+    .platform-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(255, 215, 0, 0.2);
     }
 
-    @keyframes shine {
-      0% { left: -100%; }
-      100% { left: 100%; }
+    /* Hub Section */
+    .hub-section {
+      background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
+      border-radius: 20px;
+      padding: 3rem;
+      margin: 3rem 0;
+      border: 1px solid rgba(255, 215, 0, 0.2);
+    }
+
+    .hub-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .hub-card {
+      background: linear-gradient(145deg, #2a2a2a, #3a3a3a);
+      padding: 2rem;
+      border-radius: 15px;
+      border: 1px solid rgba(255, 215, 0, 0.1);
+      transition: all 0.3s;
+    }
+
+    .hub-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(255, 215, 0, 0.2);
+    }
+
+    .hub-card h4 {
+      color: #FFD700;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .hub-card .category-tag {
+      display: inline-block;
+      background: rgba(255, 215, 0, 0.2);
+      color: #FFD700;
+      padding: 0.3rem 0.8rem;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact-info {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+
+    .contact-info a {
+      color: #FFD700;
+      text-decoration: none;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -556,13 +654,15 @@
   <header class="header">
     <nav class="nav">
       <div class="logo">
-        <img src="teos_logo_pharaoh_modern.png" alt="TEOS Logo">
+        <div class="logo-img">👑</div>
         $TEOS
       </div>
       <ul class="nav-links">
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
+        <li><a href="#elmahrosa">Elmahrosa</a></li>
+        <li><a href="#hub">Hub</a></li>
         <li><a href="#contribute">Contribute</a></li>
         <li><a href="#links">Links</a></li>
       </ul>
@@ -622,7 +722,7 @@
       <!-- Infographic -->
       <div class="infographic-section">
         <h2 class="section-title">📊 TEOSHOLD 1000 Overview</h2>
-        <img src="ChatGPTImage26يوليو2025،05_47_07م.png" alt="TEOSHOLD 1000 Infographic" class="infographic-image">
+        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZ29sZEdyYWRpZW50IiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I0ZGRDcwMDtzdG9wLW9wYWNpdHk6MSIgLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojRkZBNTAwO3N0b3Atb3BhY2l0eToxIiAvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzFhMWExYSIvPgogIDx0ZXh0IHg9IjQwMCIgeT0iNTAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIzNiIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9InVybCgjZ29sZEdyYWRpZW50KSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+V0VMQ09NRSBUT1RFT1NIT0xEIDEwMDA8L3RleHQ+CiAgPHRleHQgeD0iNDAwIiB5PSI5MCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmaWxsPSIjY2NjIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5UaGUgUGlvbmVlcnMnIFBoYXNlIEhhcyBCZWd1biE8L3RleHQ+CiAgCiAgPCEtLSBTdGF0cyBTZWN0aW9uIC0tPgogIDxyZWN0IHg9IjUwIiB5PSIxNDAiIHdpZHRoPSIyMDAiIGhlaWdodD0iMTIwIiBmaWxsPSIjMmEyYTJhIiByeD0iMTAiLz4KICA8dGV4dCB4PSIxNTAiIHk9IjE4MCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iI0ZGRDcwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+NTk2PC90ZXh0PgogIDx0ZXh0IHg9IjE1MCIgeT0iMjEwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiNjY2MiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkN1cnJlbnQgSG9sZGVyczwvdGV4dD4KICA8dGV4dCB4PSIxNTAiIHk9IjIzMCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBmaWxsPSIjY2NjIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5Tb2wgYWNjZXB0aW5nIG5vdzwvdGV4dD4KCiAgPHJlY3QgeD0iMzAwIiB5PSIxNDAiIHdpZHRoPSIyMDAiIGhlaWdodD0iMTIwIiBmaWxsPSIjMmEyYTJhIiByeD0iMTAiLz4KICA8dGV4dCB4PSI0MDAiIHk9IjE4MCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iI0ZGRDcwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+MTAsMDAwPC90ZXh0PgogIDx0ZXh0IHg9IjQwMCIgeT0iMjEwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiNjY2MiIHRleHQtYW5jaG9yPSJtaWRkbGUiPiRURU9TIGhvbGRlcnM8L3RleHQ+CiAgPHRleHQgeD0iNDAwIiB5PSIyMzAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgZmlsbD0iI2NjYyIgdGV4dC1hbmNob3I9Im1pZGRsZSI+Z2xvYmFsbHk8L3RleHQ+CgogIDxyZWN0IHg9IjU1MCIgeT0iMTQwIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEyMCIgZmlsbD0iIzJhMmEyYSIgcng9IjEwIi8+CiAgPHRleHQgeD0iNjUwIiB5PSIxODAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIzNiIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiNGRkQ3MDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkNvbnRyaWJ1dGlvbnM8L3RleHQ+CiAgPHRleHQgeD0iNjUwIiB5PSIyMTAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iI2NjYyIgdGV4dC1hbmNob3I9Im1pZGRsZSI+U3RhcnRlZDwvdGV4dD4KCiAgPCEtLSBSb2FkbWFwIFNlY3Rpb24gLS0+CiAgPHRleHQgeD0iNDAwIiB5PSIzMjAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyOCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9InVybCgjZ29sZEdyYWRpZW50KSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+JFRFT1MgUk9BRE1BUCAoVVBEQVRFRCDigJQgSlVMWSAyMDI1KTwvdGV4dD4KCiAgPCEtLSBQaGFzZSAxIC0tPgogIDxyZWN0IHg9IjUwIiB5PSIzNjAiIHdpZHRoPSIyMDAiIGhlaWdodD0iMTgwIiBmaWxsPSIjMmEyYTJhIiByeD0iMTAiLz4KICA8dGV4dCB4PSIxNTAiIHk9IjM4NSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iI0ZGRDcwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+UEhBU0UgMTwvdGV4dD4KICA8dGV4dCB4PSIxNTAiIHk9IjQwNSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmaWxsPSIjY2NjIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5MYXVuY2ggJmFtcDsgU2V0dXA8L3RleHQ+CiAgPHRleHQgeD0iNjAiIHk9IjQzMCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBmaWxsPSIjY2NjIj7igKIgJFRFT1MgVG9rZW4gQ3JlYXRlZDwvdGV4dD4KICA8dGV4dCB4PSI2MCIgeT0iNDUwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9IiNjY2MiPuKAoiBTbWFydCBDb250cmFjdCBEZXBsb3llZDwvdGV4dD4KICA8dGV4dCB4PSI2MCIgeT0iNDcwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9IiNjY2MiPuKAoiBUZW9zSG9sZCAxMDAwIFBsYXRmb3JtPC90ZXh0PgogIDx0ZXh0IHg9IjYwIiB5PSI0OTAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgZmlsbD0iI2NjYyI+4oCiIFB1YmxpYyBIb2xkZXIgVmVyaWZpY2F0aW9uPC90ZXh0PgoKICA8IS0tIFBoYXNlIDIgLS0+CiAgPHJlY3QgeD0iMzAwIiB5PSIzNjAiIHdpZHRoPSIyMDAiIGhlaWdodD0iMTgwIiBmaWxsPSIjMmEyYTJhIiByeD0iMTAiLz4KICA8dGV4dCB4PSI0MDAiIHk9IjM4NSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iI0ZGRDcwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+UEhBU0UgMjwvdGV4dD4KICA8dGV4dCB4PSI0MDAiIHk9IjQwNSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmaWxsPSIjY2NjIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5QaW9uZWVycyBDb250cmlidXRpb248L3RleHQ+CiAgPHRleHQgeD0iMzEwIiB5PSI0MzAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgZmlsbD0iI2NjYyI+4oCiIExpc3RpbmdzIG9uIE9LWCwgR2F0ZSBJbzwvdGV4dD4KICA8dGV4dCB4PSIzMTAiIHk9IjQ1MCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBmaWxsPSIjY2NjIj7igKIgQXVkaXQgJmFtcDsgU21hcnQgQ29udHJhY3Q8L3RleHQ+CiAgPHRleHQgeD0iMzEwIiB5PSI0NzAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgZmlsbD0iI2NjYyI+4oCiIFBpb25lZXIgTkZUIERyb3A8L3RleHQ+CiAgPHRleHQgeD0iMzEwIiB5PSI0OTAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgZmlsbD0iI2NjYyI+4oCiIENvbW11bml0eSBHb3Zlcm5hbmNlPC90ZXh0PgoKICA8IS0tIFBoYXNlIDMgLS0+CiAgPHJlY3QgeD0iNTUwIiB5PSIzNjAiIHdpZHRoPSIyMDAiIGhlaWdodD0iMTgwIiBmaWxsPSIjMmEyYTJhIiByeD0iMTAiLz4KICA8dGV4dCB4PSI2NTAiIHk9IjM4NSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iI0ZGRDcwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+UEhBU0UgNDwvdGV4dD4KICA8dGV4dCB4PSI2NTAiIHk9IjQwNSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmaWxsPSIjY2NjIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5QdWJsaWMgRXhwYW5zaW9uPC90ZXh0PgogIDx0ZXh0IHg9IjU2MCIgeT0iNDMwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9IiNjY2MiPuKAoiBHbG9iYWwgQ2FtcGFpZ24gTGF1bmNoPC90ZXh0PgogIDx0ZXh0IHg9IjU2MCIgeT0iNDUwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9IiNjY2MiPuKAoiBQYXJ0bmVyc2hpcHMgd2l0aCBXZWIzPC90ZXh0PgogIDx0ZXh0IHg9IjU2MCIgeT0iNDcwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9IiNjY2MiPuKAoiBMYXVuY2ggb2YgVGVvc1B1bXA8L3RleHQ+CiAgPHRleHQgeD0iNTYwIiB5PSI0OTAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgZmlsbD0iI2NjYyI+4oCiIEVneXB0aWFuIENyeXB0byBTdW1taXQ8L3RleHQ+Cjwvc3ZnPgo=" alt="TEOSHOLD 1000 Infographic" class="infographic-image">
       </div>
 
       <!-- Contribution Pool Details -->
@@ -720,6 +820,7 @@
             <i class="fas fa-eye"></i>
           </div>
           <h4>$TEOS Token</h4>
+          <p>Core cryptocurrency of the network</p>
         </div>
         
         <div class="project-card fade-in-up">
@@ -727,6 +828,7 @@
             <i class="fas fa-chart-line"></i>
           </div>
           <h4>TeosPump</h4>
+          <p>Launchpad platform for the token</p>
         </div>
         
         <div class="project-card fade-in-up">
@@ -734,6 +836,7 @@
             <i class="fas fa-pickaxe"></i>
           </div>
           <h4>TEOS Mining App</h4>
+          <p>Mobile application for mining $TEOS tokens</p>
         </div>
         
         <div class="project-card fade-in-up">
@@ -741,6 +844,7 @@
             <i class="fas fa-paper-plane"></i>
           </div>
           <h4>TEOS Miner Telegram Bot</h4>
+          <p>Bot for interacting with mining service</p>
         </div>
         
         <div class="project-card fade-in-up">
@@ -748,6 +852,7 @@
             <i class="fas fa-microchip"></i>
           </div>
           <h4>Elmahrosa AI Auditor</h4>
+          <p>Security and transparency auditing</p>
         </div>
         
         <div class="project-card fade-in-up">
@@ -755,6 +860,7 @@
             <i class="fas fa-map"></i>
           </div>
           <h4>TeosEgypt. Token</h4>
+          <p>Egyptian-themed token branding</p>
         </div>
         
         <div class="project-card fade-in-up">
@@ -762,6 +868,7 @@
             <i class="fas fa-city"></i>
           </div>
           <h4>Elmahrosa Smart City</h4>
+          <p>Future real-world integration</p>
         </div>
         
         <div class="project-card fade-in-up">
@@ -769,6 +876,7 @@
             <i class="fas fa-heartbeat"></i>
           </div>
           <h4>Salma Unity Care Hospital</h4>
+          <p>Healthcare sector use case</p>
         </div>
         
         <div class="project-card fade-in-up">
@@ -776,6 +884,7 @@
             <i class="fas fa-map-marked-alt"></i>
           </div>
           <h4>Egyptian Map of Pi</h4>
+          <p>Pi Network community visualization</p>
         </div>
         
         <div class="project-card fade-in-up">
@@ -783,6 +892,7 @@
             <i class="fas fa-network-wired"></i>
           </div>
           <h4>TeosNexus</h4>
+          <p>Central hub for ecosystem connections</p>
         </div>
         
         <div class="project-card fade-in-up">
@@ -790,6 +900,7 @@
             <i class="fas fa-server"></i>
           </div>
           <h4>Teos Domain Platform</h4>
+          <p>Domain management within network</p>
         </div>
         
         <div class="project-card fade-in-up">
@@ -797,12 +908,256 @@
             <i class="fas fa-bullhorn"></i>
           </div>
           <h4>TEOS AI Campaign Tools</h4>
+          <p>AI-powered marketing tools</p>
         </div>
       </div>
       
       <!-- Elmahrosa Web3.PI Logo -->
       <div style="text-align: center; margin-top: 3rem;">
-        <img src="8b60252d-c682-46e6-9aa8-5c9b9911ac5e.jpg" alt="Teosholders 1000" style="max-width: 300px; height: auto; border-radius: 15px;">
+        <div style="width: 300px; height: 200px; background: linear-gradient(145deg, #2a2a2a, #3a3a3a); border-radius: 15px; margin: 0 auto; display: flex; align-items: center; justify-content: center; border: 2px solid rgba(255, 215, 0, 0.2);">
+          <div style="text-align: center;">
+            <div style="width: 80px; height: 80px; background: linear-gradient(45deg, #6a5acd, #00bfff); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: white;">🛡️</div>
+            <h3 style="color: #FFD700; margin: 0;">Teosholders 1000</h3>
+            <p style="color: #ccc; margin: 0.5rem 0 0; font-size: 0.9rem;">Elmahrosa Web3.PI</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Elmahrosa International Section -->
+  <section id="elmahrosa" class="section">
+    <div class="container">
+      <div class="elmahrosa-section">
+        <h2 class="section-title">🌐 Elmahrosa International</h2>
+        <p style="text-align: center; font-size: 1.2rem; margin-bottom: 3rem; color: #ccc;">
+          Led by Ayman Seif - Connecting businesses globally through innovation and excellence
+        </p>
+        
+        <div class="cards-grid">
+          <div class="card fade-in-up">
+            <div class="card-icon">
+              <i class="fas fa-globe"></i>
+            </div>
+            <h3>Global Reach</h3>
+            <p>International business solutions connecting companies worldwide through strategic partnerships and innovative approaches.</p>
+          </div>
+          <div class="card fade-in-up">
+            <div class="card-icon">
+              <i class="fas fa-lightbulb"></i>
+            </div>
+            <h3>Innovation</h3>
+            <p>Cutting-edge technology integration and forward-thinking solutions that drive business transformation.</p>
+          </div>
+          <div class="card fade-in-up">
+            <div class="card-icon">
+              <i class="fas fa-award"></i>
+            </div>
+            <h3>Excellence</h3>
+            <p>Commitment to quality and results, delivering exceptional value to clients and stakeholders.</p>
+          </div>
+        </div>
+
+        <h3 style="color: #FFD700; text-align: center; margin: 3rem 0 2rem;">Our Platforms</h3>
+        <div class="platforms-grid">
+          <div class="platform-card fade-in-up">
+            <div class="project-icon">
+              <i class="fas fa-book"></i>
+            </div>
+            <h4>ELibs Live Platform</h4>
+            <p>Digital library and educational resources platform</p>
+            <a href="#" class="btn btn-secondary" style="margin-top: 1rem; font-size: 0.9rem;">Visit Platform</a>
+          </div>
+          
+          <div class="platform-card fade-in-up">
+            <div class="project-icon">
+              <i class="fas fa-calendar-alt"></i>
+            </div>
+            <h4>Elmahrosa Expo</h4>
+            <p>International business expo and networking events</p>
+            <a href="#" class="btn btn-secondary" style="margin-top: 1rem; font-size: 0.9rem;">Visit Platform</a>
+          </div>
+          
+          <div class="platform-card fade-in-up">
+            <div class="project-icon">
+              <i class="fas fa-ship"></i>
+            </div>
+            <h4>Boat Show Egypt</h4>
+            <p>Marine industry showcase and maritime business platform</p>
+            <a href="#" class="btn btn-secondary" style="margin-top: 1rem; font-size: 0.9rem;">Visit Platform</a>
+          </div>
+        </div>
+
+        <h3 style="color: #FFD700; text-align: center; margin: 3rem 0 2rem;">Events & Campaigns</h3>
+        <div class="platforms-grid">
+          <div class="platform-card fade-in-up">
+            <div class="project-icon">
+              <i class="fas fa-calendar"></i>
+            </div>
+            <h4>CE 2025 Event</h4>
+            <p>Consumer Electronics showcase and innovation summit</p>
+            <a href="#" class="btn btn-secondary" style="margin-top: 1rem; font-size: 0.9rem;">Learn More</a>
+          </div>
+          
+          <div class="platform-card fade-in-up">
+            <div class="project-icon">
+              <i class="fas fa-coins"></i>
+            </div>
+            <h4>TEOS Egypt Event</h4>
+            <p>Blockchain and cryptocurrency community gathering</p>
+            <a href="#" class="btn btn-secondary" style="margin-top: 1rem; font-size: 0.9rem;">Learn More</a>
+          </div>
+          
+          <div class="platform-card fade-in-up">
+            <div class="project-icon">
+              <i class="fas fa-file-signature"></i>
+            </div>
+            <h4>Change.org Campaign</h4>
+            <p>Digital currency regulation advocacy in Egypt</p>
+            <a href="https://www.change.org/p/join-the-movement-sign-the-petition-to-regulate-digital-currencies-in-egypt?recruiter=41912740&recruited_by_id=d23" target="_blank" class="btn btn-secondary" style="margin-top: 1rem; font-size: 0.9rem;">Learn More</a>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;">
+          <h3 style="color: #FFD700; margin-bottom: 1rem;">Leadership</h3>
+          <p style="color: #ccc; font-size: 1.1rem;">
+            Under the visionary leadership of <strong style="color: #FFD700;">Ayman Seif</strong>, Elmahrosa International has established itself as a trusted partner for businesses seeking global expansion and innovative solutions in the digital economy.
+          </p>
+          <a href="#" class="btn" style="margin-top: 1rem;">
+            <i class="fas fa-user"></i>
+            Connect with Ayman Seif
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEOS Egypt Hub Section -->
+  <section id="hub" class="section">
+    <div class="container">
+      <div class="hub-section">
+        <h2 class="section-title">🏛️ TEOS Egypt Hub</h2>
+        <p style="text-align: center; font-size: 1.2rem; margin-bottom: 3rem; color: #ccc;">
+          Comprehensive Platform Directory - Your gateway to the entire TEOS ecosystem
+        </p>
+        
+        <div class="hub-grid">
+          <div class="hub-card fade-in-up">
+            <div class="category-tag">whitepaper</div>
+            <h4>$TEOS Egypt Whitepaper</h4>
+            <p>Revolutionizing Cultural Heritage Engagement with AI and IoT</p>
+            <p style="font-size: 0.9rem; color: #ccc; margin-top: 1rem;">
+              Welcome to the official $TEOS Egypt whitepaper. Explore how we are integrating AI and IoT technologies to create an interactive, personalized, and rewarding ecosystem centered on Egyptian cultural heritage.
+            </p>
+            <div class="contact-info">
+              <strong>Contact Information:</strong><br>
+              Telegram: <a href="https://t.me/elmahrosapi">@elmahrosapi</a><br>
+              WhatsApp: <a href="tel:+201006167293">+201006167293</a><br>
+              Email: <a href="mailto:info@elmahrosa-expo.com">info@elmahrosa-expo.com</a>
+            </div>
+            <a href="#" class="btn btn-secondary" style="margin-top: 1rem; font-size: 0.9rem;">Visit Platform</a>
+          </div>
+
+          <div class="hub-card fade-in-up">
+            <div class="category-tag">investment</div>
+            <h4>TEOS Whales Club</h4>
+            <p>Exclusive Investor Membership</p>
+            <p style="font-size: 0.9rem; color: #ccc; margin-top: 1rem;">
+              High-Growth Digital Asset built on real-world applications integrating AI and IoT technologies. Designed for Elite Investors seeking strategic governance and maximum returns. Limited-Supply Token with deflationary economics.
+            </p>
+            <div class="contact-info">
+              <strong>Contact Information:</strong><br>
+              Telegram: <a href="https://t.me/elmahrosapi">@elmahrosapi</a><br>
+              Twitter: <a href="https://x.com/Teosegypt">@Teosegypt</a><br>
+              Website: <a href="#">mqxreqwb.manus.space</a>
+            </div>
+            <a href="#" class="btn btn-secondary" style="margin-top: 1rem; font-size: 0.9rem;">Visit Platform</a>
+          </div>
+
+          <div class="hub-card fade-in-up">
+            <div class="category-tag">nft</div>
+            <h4>TEOS Egypt NFT Marketplace</h4>
+            <p>Discover, Collect, and Sell Egyptian Cultural NFTs</p>
+            <p style="font-size: 0.9rem; color: #ccc; margin-top: 1rem;">
+              The premier marketplace for non-fungible tokens representing Egypt's rich heritage and contemporary art
+            </p>
+            <div class="contact-info">
+              <strong>Contact Information:</strong><br>
+              Email: <a href="mailto:info@teosegypt.com">info@teosegypt.com</a>
+            </div>
+            <a href="#" class="btn btn-secondary" style="margin-top: 1rem; font-size: 0.9rem;">Visit Platform</a>
+          </div>
+
+          <div class="hub-card fade-in-up">
+            <div class="category-tag">main</div>
+            <h4>TEOS Egypt Landing</h4>
+            <p>Where Ancient Heritage Meets Blockchain Innovation</p>
+            <p style="font-size: 0.9rem; color: #ccc; margin-top: 1rem;">
+              A Solana-based cultural meme coin ecosystem integrating Egyptian heritage with NFTs, VR experiences, and educational content.
+            </p>
+            <div class="contact-info">
+              <strong>Contact Information:</strong><br>
+              Email: <a href="mailto:info@teosegypt.com">info@teosegypt.com</a>
+            </div>
+            <a href="#" class="btn btn-secondary" style="margin-top: 1rem; font-size: 0.9rem;">Visit Platform</a>
+          </div>
+
+          <div class="hub-card fade-in-up">
+            <div class="category-tag">education</div>
+            <h4>TEOS Egypt Educational Platform</h4>
+            <p>Discover the Wonders of Ancient Egypt</p>
+            <p style="font-size: 0.9rem; color: #ccc; margin-top: 1rem;">
+              Explore the rich history, culture, and technology of Egypt through interactive learning experiences.
+            </p>
+            <div class="contact-info">
+              <strong>Contact Information:</strong><br>
+              Email: <a href="mailto:info@teosegypt.com">info@teosegypt.com</a>
+            </div>
+            <a href="#" class="btn btn-secondary" style="margin-top: 1rem; font-size: 0.9rem;">Visit Platform</a>
+          </div>
+
+          <div class="hub-card fade-in-up">
+            <div class="category-tag">vr</div>
+            <h4>TEOS Egypt VR Museum</h4>
+            <p>Immersive Journey Through Egyptian History</p>
+            <p style="font-size: 0.9rem; color: #ccc; margin-top: 1rem;">
+              Preparing your immersive journey through Egyptian history...
+            </p>
+            <div class="contact-info">
+              <strong>Contact Information:</strong><br>
+              Email: <a href="mailto:info@teosegypt.com">info@teosegypt.com</a>
+            </div>
+            <a href="#" class="btn btn-secondary" style="margin-top: 1rem; font-size: 0.9rem;">Visit Platform</a>
+          </div>
+
+          <div class="hub-card fade-in-up">
+            <div class="category-tag">blockchain</div>
+            <h4>Elmahrosa Blockchain</h4>
+            <p>The First Egyptian Token</p>
+            <p style="font-size: 0.9rem; color: #ccc; margin-top: 1rem;">
+              $TEOS is Egypt's pioneering cryptocurrency that transcends the conventional meme coin paradigm by embedding educational and cultural value within its ecosystem.
+            </p>
+            <div class="contact-info">
+              <strong>Contact Information:</strong><br>
+              Email: <a href="mailto:info@elmahrosa-expo.com">info@elmahrosa-expo.com</a>
+            </div>
+            <a href="#" class="btn btn-secondary" style="margin-top: 1rem; font-size: 0.9rem;">Visit Platform</a>
+          </div>
+
+          <div class="hub-card fade-in-up">
+            <div class="category-tag">presale</div>
+            <h4>TEOS Presale</h4>
+            <p>Historical Significance & Token Sale</p>
+            <p style="font-size: 0.9rem; color: #ccc; margin-top: 1rem;">
+              Pharaoh Teos ruled Egypt during the 30th Dynasty, implementing pioneering monetary reforms. $TEOS Egypt is a cultural meme coin built on Solana blockchain combining ancient Egyptian heritage with modern cryptocurrency technology.
+            </p>
+            <div class="contact-info">
+              <strong>Contact Information:</strong><br>
+              Email: <a href="mailto:info@teosegypt.com">info@teosegypt.com</a>
+            </div>
+            <a href="#" class="btn btn-secondary" style="margin-top: 1rem; font-size: 0.9rem;">Visit Platform</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1131,7 +1486,7 @@
 
     // Observe elements for animation
     document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('.card, .stats-grid, .project-card').forEach(el => {
+      document.querySelectorAll('.card, .stats-grid, .project-card, .platform-card, .hub-card').forEach(el => {
         observer.observe(el);
       });
     });
@@ -1148,3 +1503,4 @@
   </script>
 </body>
 </html>
+
