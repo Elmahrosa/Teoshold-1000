@@ -285,8 +285,13 @@ MIT
 - **Complete frontend minting logic**: Integrate SPL token mint and transaction signing  
 - **Add backend DB (MongoDB/Firebase) for persistence**  
 - **Set up GitHub repo with Actions for CI/CD**  
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App'
+import './index.css'
 
-Just say **“Deploy contract”**, **“Complete frontend”**, or **“Setup backend DB”** — or if you want full repo files zipped or GitHub links. 
-
-Boss, I’m ready to roll! What’s next?
-```
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+)
