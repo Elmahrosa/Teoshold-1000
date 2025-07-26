@@ -1,28 +1,9 @@
-<div class="card">
-  <h2>🚀 Introduction</h2>
-      <p>$TEOS is the first Egyptian-built Web3 token on Solana by Elmahrosa International, focused on empowering the next generation of decentralized builders and communities.</p>
-    </div>
-
-    <div class="card">
-      <h2>🪙 Connect Wallet</h2>
-      <button class="btn" onclick="connectWallet()">Connect Phantom Wallet</button>
-      <div id="wallet-info">Wallet not connected</div>
-    </div>
-
-    <div class="card">
-      <h2>📩 Join the Community Airdrop</h2>
-      <form class="form-section" id="airdrop-form">
-        <input type="email" name="email" placeholder="Your email address" required />
-        <input type="text" id="wallet" name="wallet" placeholder="Your Solana wallet" required />
-        <input type="number" name="amount" id="amount" placeholder="Contribution in USD" required min="0" />
-        <div id="bonus-msg" style="color:#00ffcc;"></div>
-        <button class=
-          <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>$TEOS Community Sale | TEOS Egypt</title>
+  <title>$TEOS Whitelist Contribution Pool | TEOS Egypt</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
@@ -62,9 +43,18 @@
     }
 
     .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
       font-size: 1.5rem;
       font-weight: 700;
       color: #FFD700;
+    }
+
+    .logo img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
     }
 
     .nav-links {
@@ -107,7 +97,7 @@
     }
 
     .hero-content {
-      max-width: 800px;
+      max-width: 900px;
       z-index: 1;
       position: relative;
     }
@@ -231,6 +221,48 @@
       color: #FFD700;
       margin-bottom: 1rem;
       font-size: 1.3rem;
+    }
+
+    /* TEOS Network Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .project-card {
+      background: linear-gradient(145deg, #1c1c1c, #2a2a2a);
+      padding: 1.5rem;
+      border-radius: 15px;
+      text-align: center;
+      border: 1px solid rgba(255, 215, 0, 0.1);
+      transition: all 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(255, 215, 0, 0.2);
+    }
+
+    .project-icon {
+      font-size: 2rem;
+      color: #FFD700;
+      margin-bottom: 1rem;
+    }
+
+    /* Infographic Section */
+    .infographic-section {
+      text-align: center;
+      margin: 3rem 0;
+    }
+
+    .infographic-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      border: 2px solid rgba(255, 215, 0, 0.2);
     }
 
     /* Wallet Connection */
@@ -442,6 +474,10 @@
       .form-container {
         padding: 2rem;
       }
+
+      .projects-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      }
     }
 
     /* Animations */
@@ -481,16 +517,52 @@
       color: #FFD700;
       font-weight: 600;
     }
+
+    /* Alert Banner */
+    .alert-banner {
+      background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      font-weight: 600;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .alert-banner::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      animation: shine 2s infinite;
+    }
+
+    @keyframes shine {
+      0% { left: -100%; }
+      100% { left: 100%; }
+    }
   </style>
 </head>
 <body>
+  <!-- Alert Banner -->
+  <div class="alert-banner">
+    🚨 Only the first 1,000 verified wallets will enter — the gate closes forever after that! 🚨
+  </div>
+
   <!-- Header -->
   <header class="header">
     <nav class="nav">
-      <div class="logo">$TEOS</div>
+      <div class="logo">
+        <img src="teos_logo_pharaoh_modern.png" alt="TEOS Logo">
+        $TEOS
+      </div>
       <ul class="nav-links">
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
         <li><a href="#contribute">Contribute</a></li>
         <li><a href="#links">Links</a></li>
       </ul>
@@ -500,16 +572,20 @@
   <!-- Hero Section -->
   <section id="home" class="hero">
     <div class="hero-content fade-in-up">
-      <h1>$TEOS Community Pool</h1>
-      <p>The first Egyptian-built Web3 token on Solana, empowering the next generation of decentralized builders and communities.</p>
+      <h1>🚨 $TEOS Whitelist Contribution Pool is Coming! 🚨</h1>
+      <p>Only real holders gain access—get ready to claim your spot in the exclusive $TEOS pioneer pool.</p>
       <div class="cta-buttons">
         <button class="btn" onclick="scrollToSection('contribute')">
           <i class="fas fa-rocket"></i>
-          Join Now
+          Claim Your Spot
         </button>
         <a href="#about" class="btn btn-secondary">
           <i class="fas fa-info-circle"></i>
           Learn More
+        </a>
+        <a href="https://www.change.org/p/join-the-movement-sign-the-petition-to-regulate-digital-currencies-in-egypt?recruiter=41912740&recruited_by_id=d23" target="_blank" class="btn btn-secondary">
+          <i class="fas fa-file-signature"></i>
+          Sign Petition
         </a>
       </div>
     </div>
@@ -518,56 +594,215 @@
   <!-- About Section -->
   <section id="about" class="section">
     <div class="container">
-      <h2 class="section-title">Why $TEOS?</h2>
+      <h2 class="section-title">💎 Why $TEOS is Different</h2>
       <div class="cards-grid">
         <div class="card fade-in-up">
           <div class="card-icon">
-            <i class="fas fa-shield-alt"></i>
+            <i class="fas fa-check-circle"></i>
           </div>
-          <h3>Decentralized & Secure</h3>
+          <h3>✅ 100% Decentralized</h3>
           <p>Built on Solana with no mint authority and no freeze authority, ensuring true decentralization and security for all holders.</p>
+        </div>
+        <div class="card fade-in-up">
+          <div class="card-icon">
+            <i class="fas fa-lock"></i>
+          </div>
+          <h3>✅ Fixed Supply Forever</h3>
+          <p>The $TEOS token has a fixed supply, immune to inflationary pressures and centralized control.</p>
         </div>
         <div class="card fade-in-up">
           <div class="card-icon">
             <i class="fas fa-users"></i>
           </div>
-          <h3>Community Driven</h3>
-          <p>A revolutionary approach to token distribution focused on building a strong, committed community of real holders.</p>
+          <h3>✅ Built for Holders</h3>
+          <p>Designed to reward genuine holders and build a strong, committed community, not manipulators.</p>
+        </div>
+      </div>
+
+      <!-- Infographic -->
+      <div class="infographic-section">
+        <h2 class="section-title">📊 TEOSHOLD 1000 Overview</h2>
+        <img src="ChatGPTImage26يوليو2025،05_47_07م.png" alt="TEOSHOLD 1000 Infographic" class="infographic-image">
+      </div>
+
+      <!-- Contribution Pool Details -->
+      <h2 class="section-title" style="margin-top: 5rem;">📝 Contribution Pool Details</h2>
+      <div class="cards-grid">
+        <div class="card fade-in-up">
+          <div class="card-icon">
+            <i class="fas fa-coins"></i>
+          </div>
+          <h3>💰 Contribution Rate</h3>
+          <p>Contribute $50 in SOL → Receive 10,000 $TEOS tokens</p>
+        </div>
+        <div class="card fade-in-up">
+          <div class="card-icon">
+            <i class="fas fa-lock"></i>
+          </div>
+          <h3>🔐 SOL Locking</h3>
+          <p>50% of all SOL is locked until we reach 10,000 holders</p>
         </div>
         <div class="card fade-in-up">
           <div class="card-icon">
             <i class="fas fa-chart-line"></i>
           </div>
-          <h3>Growth Potential</h3>
-          <p>Early supporters get exclusive access to private trading phases and bonus rewards for larger contributions.</p>
+          <h3>⚡️ Early Trading</h3>
+          <p>Early trading unlocks at 500 verified contributors</p>
+        </div>
+      </div>
+
+      <!-- What Comes Next -->
+      <h2 class="section-title" style="margin-top: 5rem;">📈 What Comes Next</h2>
+      <div class="cards-grid">
+        <div class="card fade-in-up">
+          <div class="card-icon">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <h3>📲 Mining App</h3>
+          <p>Mining App will onboard new holders and distribute airdrops</p>
+        </div>
+        <div class="card fade-in-up">
+          <div class="card-icon">
+            <i class="fas fa-ticket-alt"></i>
+          </div>
+          <h3>🎟 Future Presales</h3>
+          <p>Future presales will boost adoption—but won't access this private pool</p>
+        </div>
+        <div class="card fade-in-up">
+          <div class="card-icon">
+            <i class="fas fa-globe"></i>
+          </div>
+          <h3>🌐 Global Listing</h3>
+          <p>Once we reach 10,000 real holders, $TEOS will be listed on OKX and Binance, get a full audit by CertiK, and launch global DEX and CEX campaigns</p>
         </div>
       </div>
 
       <!-- Stats -->
       <div class="stats-grid">
         <div class="stat-card">
-          <span class="stat-number" id="total-contributors">0</span>
-          <div class="stat-label">Total Contributors</div>
+          <span class="stat-number" id="total-contributors">596</span>
+          <div class="stat-label">Current Holders</div>
         </div>
         <div class="stat-card">
           <span class="stat-number">9B</span>
           <div class="stat-label">Max Supply</div>
         </div>
         <div class="stat-card">
-          <span class="stat-number" id="sol-raised">0</span>
+          <span class="stat-number" id="sol-raised">1,247</span>
           <div class="stat-label">SOL Raised</div>
         </div>
         <div class="stat-card">
-          <span class="stat-number">50%</span>
-          <div class="stat-label">SOL Locked</div>
+          <span class="stat-number">10,000</span>
+          <div class="stat-label">Target Holders</div>
         </div>
       </div>
 
       <!-- Progress Bar -->
       <div class="progress-container">
         <div class="progress-text">Progress to 10,000 Holders</div>
-        <div class="progress-bar" style="width: 5%"></div>
-        <div class="progress-text">500 / 10,000 Contributors</div>
+        <div class="progress-bar" style="width: 6%"></div>
+        <div class="progress-text">596 / 10,000 Contributors</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEOS Network Projects Section -->
+  <section id="projects" class="section">
+    <div class="container">
+      <h2 class="section-title">⚡ TEOS Network Includes</h2>
+      <p style="text-align: center; font-size: 1.2rem; margin-bottom: 3rem; color: #ccc;">
+        From Egypt to the World – Powering the Digital Pharaohs
+      </p>
+      
+      <div class="projects-grid">
+        <div class="project-card fade-in-up">
+          <div class="project-icon">
+            <i class="fas fa-eye"></i>
+          </div>
+          <h4>$TEOS Token</h4>
+        </div>
+        
+        <div class="project-card fade-in-up">
+          <div class="project-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h4>TeosPump</h4>
+        </div>
+        
+        <div class="project-card fade-in-up">
+          <div class="project-icon">
+            <i class="fas fa-pickaxe"></i>
+          </div>
+          <h4>TEOS Mining App</h4>
+        </div>
+        
+        <div class="project-card fade-in-up">
+          <div class="project-icon">
+            <i class="fas fa-paper-plane"></i>
+          </div>
+          <h4>TEOS Miner Telegram Bot</h4>
+        </div>
+        
+        <div class="project-card fade-in-up">
+          <div class="project-icon">
+            <i class="fas fa-microchip"></i>
+          </div>
+          <h4>Elmahrosa AI Auditor</h4>
+        </div>
+        
+        <div class="project-card fade-in-up">
+          <div class="project-icon">
+            <i class="fas fa-map"></i>
+          </div>
+          <h4>TeosEgypt. Token</h4>
+        </div>
+        
+        <div class="project-card fade-in-up">
+          <div class="project-icon">
+            <i class="fas fa-city"></i>
+          </div>
+          <h4>Elmahrosa Smart City</h4>
+        </div>
+        
+        <div class="project-card fade-in-up">
+          <div class="project-icon">
+            <i class="fas fa-heartbeat"></i>
+          </div>
+          <h4>Salma Unity Care Hospital</h4>
+        </div>
+        
+        <div class="project-card fade-in-up">
+          <div class="project-icon">
+            <i class="fas fa-map-marked-alt"></i>
+          </div>
+          <h4>Egyptian Map of Pi</h4>
+        </div>
+        
+        <div class="project-card fade-in-up">
+          <div class="project-icon">
+            <i class="fas fa-network-wired"></i>
+          </div>
+          <h4>TeosNexus</h4>
+        </div>
+        
+        <div class="project-card fade-in-up">
+          <div class="project-icon">
+            <i class="fas fa-server"></i>
+          </div>
+          <h4>Teos Domain Platform</h4>
+        </div>
+        
+        <div class="project-card fade-in-up">
+          <div class="project-icon">
+            <i class="fas fa-bullhorn"></i>
+          </div>
+          <h4>TEOS AI Campaign Tools</h4>
+        </div>
+      </div>
+      
+      <!-- Elmahrosa Web3.PI Logo -->
+      <div style="text-align: center; margin-top: 3rem;">
+        <img src="8b60252d-c682-46e6-9aa8-5c9b9911ac5e.jpg" alt="Teosholders 1000" style="max-width: 300px; height: auto; border-radius: 15px;">
       </div>
     </div>
   </section>
@@ -576,6 +811,16 @@
   <section id="contribute" class="section">
     <div class="container">
       <h2 class="section-title">Join the Community</h2>
+      
+      <!-- Portal Launch Notice -->
+      <div class="card" style="text-align: center; margin-bottom: 3rem;">
+        <h3>🌐 Portal Launching Soon:</h3>
+        <p style="font-size: 1.2rem; margin: 1rem 0;">
+          <a href="https://pioneers.teosegypt.com" target="_blank" style="color: #FFD700; text-decoration: none; font-weight: bold;">
+            👉 https://pioneers.teosegypt.com
+          </a>
+        </p>
+      </div>
       
       <!-- Wallet Connection -->
       <div class="wallet-section">
@@ -660,8 +905,48 @@
   <!-- Links Section -->
   <section id="links" class="section">
     <div class="container">
-      <h2 class="section-title">Important Links</h2>
+      <h2 class="section-title">⚡️ Stay Connected</h2>
       <div class="links-grid">
+        <a href="https://pioneers.teosegypt.com" target="_blank" class="link-card">
+          <div class="link-icon">
+            <i class="fas fa-globe"></i>
+          </div>
+          <div>
+            <strong>Official Portal</strong>
+            <div style="font-size: 0.9rem; color: #ccc;">pioneers.teosegypt.com</div>
+          </div>
+        </a>
+        
+        <a href="https://x.com/TeosEgypt" target="_blank" class="link-card">
+          <div class="link-icon">
+            <i class="fab fa-twitter"></i>
+          </div>
+          <div>
+            <strong>🐦 X: @TeosEgypt</strong>
+            <div style="font-size: 0.9rem; color: #ccc;">Follow us on X</div>
+          </div>
+        </a>
+        
+        <a href="https://t.me/elmahrosapi" target="_blank" class="link-card">
+          <div class="link-icon">
+            <i class="fab fa-telegram"></i>
+          </div>
+          <div>
+            <strong>📣 Telegram: @elmahrosapi</strong>
+            <div style="font-size: 0.9rem; color: #ccc;">Join our community</div>
+          </div>
+        </a>
+        
+        <a href="https://facebook.com/TeosEgypt" target="_blank" class="link-card">
+          <div class="link-icon">
+            <i class="fab fa-facebook"></i>
+          </div>
+          <div>
+            <strong>📘 Facebook: TeosEgypt</strong>
+            <div style="font-size: 0.9rem; color: #ccc;">Like our page</div>
+          </div>
+        </a>
+        
         <a href="https://app.dexlab.space/token-hub/AhXBUQmbhv9dNoZCiMYmXF4Gyi1cjQthWHFhTL2CJaSo" target="_blank" class="link-card">
           <div class="link-icon">
             <i class="fas fa-exchange-alt"></i>
@@ -682,23 +967,13 @@
           </div>
         </a>
         
-        <a href="https://teosegypt.com" target="_blank" class="link-card">
+        <a href="https://www.change.org/p/join-the-movement-sign-the-petition-to-regulate-digital-currencies-in-egypt?recruiter=41912740&recruited_by_id=d23" target="_blank" class="link-card">
           <div class="link-icon">
-            <i class="fas fa-globe"></i>
+            <i class="fas fa-file-signature"></i>
           </div>
           <div>
-            <strong>Official Website</strong>
-            <div style="font-size: 0.9rem; color: #ccc;">teosegypt.com</div>
-          </div>
-        </a>
-        
-        <a href="https://t.me/teosegypt" target="_blank" class="link-card">
-          <div class="link-icon">
-            <i class="fab fa-telegram"></i>
-          </div>
-          <div>
-            <strong>Join Telegram</strong>
-            <div style="font-size: 0.9rem; color: #ccc;">Community chat</div>
+            <strong>Sign the Petition</strong>
+            <div style="font-size: 0.9rem; color: #ccc;">Regulate Digital Currencies in Egypt</div>
           </div>
         </a>
       </div>
@@ -709,14 +984,16 @@
   <footer class="footer">
     <div class="footer-content">
       <div class="footer-links">
-        <a href="https://teosegypt.com">Website</a>
-        <a href="https://t.me/teosegypt">Telegram</a>
+        <a href="https://pioneers.teosegypt.com">Official Portal</a>
+        <a href="https://t.me/elmahrosapi">Telegram</a>
+        <a href="https://x.com/TeosEgypt">X (Twitter)</a>
+        <a href="https://facebook.com/TeosEgypt">Facebook</a>
         <a href="mailto:team@teosegypt.com">Contact</a>
         <a href="#">Privacy Policy</a>
         <a href="#">Terms of Service</a>
       </div>
       <p>&copy; 2025 TEOS Egypt. All rights reserved.</p>
-      <p style="margin-top: 0.5rem; color: #666;">Built with ❤️ for the decentralized future</p>
+      <p style="margin-top: 0.5rem; color: #666;">🚀 Only the first 1,000 verified wallets will enter — the gate closes forever after that.</p>
     </div>
   </footer>
 
@@ -779,7 +1056,7 @@
       const formData = new FormData(this);
       const data = {
         email: formData.get('email'),
-        wallet: walletAddress,
+        wallet: walletAddress, // This will be the connected wallet address
         amount: formData.get('amount')
       };
       
@@ -854,15 +1131,15 @@
 
     // Observe elements for animation
     document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('.card, .stats-grid').forEach(el => {
+      document.querySelectorAll('.card, .stats-grid, .project-card').forEach(el => {
         observer.observe(el);
       });
     });
 
     // Update stats periodically (mock data)
     function updateStats() {
-      document.getElementById('total-contributors').textContent = Math.floor(Math.random() * 500) + 100;
-      document.getElementById('sol-raised').textContent = (Math.random() * 1000 + 500).toFixed(1);
+      document.getElementById('total-contributors').textContent = Math.floor(Math.random() * 100) + 596;
+      document.getElementById('sol-raised').textContent = (Math.random() * 500 + 1247).toFixed(0);
     }
 
     // Update stats every 30 seconds
@@ -871,5 +1148,3 @@
   </script>
 </body>
 </html>
-
-
