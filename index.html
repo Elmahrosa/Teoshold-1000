@@ -1,1 +1,325 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>$TEOS Community Sale | TEOS Egypt</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
+  <style>
+    body { font-family: 'Inter', sans-serif; background: #0d0d0d; color: #fff; margin: 0; padding: 0; }
+    .container { max-width: 900px; margin: 0 auto; padding: 2rem; }
+    h1, h2 { color: #FFD700; }
+    .card { background: #1c1c1c; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; box-shadow: 0 0 20px rgba(255,215,0,0.1); }
+    a { color: #FFD700; text-decoration: none; }
+    .wallet { font-weight: bold; word-break: break-word; background: #333; padding: 0.5rem; border-radius: 8px; }
+    .btn { display: inline-block; padding: 10px 20px; margin-top: 1rem; background: #FFD700; color: #000; border-radius: 6px; font-weight: bold; cursor: pointer; }
+    .btn:disabled { background: #aaa; cursor: not-allowed; }
+    footer { text-align: center; margin-top: 3rem; font-size: 0.9rem; color: #aaa; }
+    ul { padding-left: 1.5rem; }
+    .countdown { font-size: 1.5rem; color: #00ffcc; margin-top: 10px; }
+    .form-section { display: flex; flex-direction: column; }
+    .form-section input { padding: 10px; border-radius: 6px; border: none; margin-bottom: 10px; }
+    #wallet-info { margin-top: 10px; font-size: 1rem; color: #00ffcc; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>$TEOS Community Contribution Pool</h1>
+
+    <div class="card">
+      <h2>🚀 Introduction</h2>
+      <p>$TEOS is the first Egyptian-built Web3 token on Solana by Elmahrosa International , focused on empowering the next generation of decentralized builders and communities.</p>
+    </div>
+
+    <div class="card">
+      <h2>🪙 Connect Wallet</h2>
+      <button class="btn" onclick="connectWallet()">Connect Phantom Wallet</button>
+      <div id="wallet-info">Wallet not connected</div>
+    </div>
+
+    <div class="card">
+      <h2>📩 Join the Community Airdrop</h2>
+      <form class="form-section" id="airdrop-form">
+        <input type="email" name="email" placeholder="Your email address" required />
+        <input type="text" id="wallet" name="wallet" placeholder="Your Solana wallet" required />
+        <input type="number" name="amount" id="amount" placeholder="Contribution in USD" required min="0" />
+        <div id="bonus-msg" style="color:#00ffcc;"></div>
+        <button class="btn" type="submit">Register</button>
+      </form>
+    </div>
+
+    <div class="card">
+      <h2>🔗 Links</h2>
+      <p><a href="https://app.dexlab.space/token-hub/AhXBUQmbhv9dNoZCiMYmXF4Gyi1cjQthWHFhTL2CJaSo" target="_blank">Trade on Dexlab</a></p>
+      <p><a href="https://solscan.io/token/AhXBUQmbhv9dNoZCiMYmXF4Gyi1cjQthWHFhTL2CJaSo" target="_blank">View on Solscan</a></p>
+    </div>
+
+    <footer>
+      &copy; 2025 TEOS Egypt. All rights reserved.
+    </footer>
+  </div>
+
+  <script>
+    function connectWallet() {
+      if ('solana' in window) {
+        window.solana.connect().then(res => {
+          document.getElementById("wallet").value = res.publicKey.toString();
+          document.getElementById("wallet-info").innerText = "Connected: " + res.publicKey.toString();
+        }).catch(() => alert("Connection failed"));
+      } else {
+        alert("Phantom Wallet not found. Please install it.");
+      }
+    }
+
+    document.getElementById("amount").addEventListener("input", function () {
+      const amt = parseFloat(this.value);
+      const msg = amt >= 50 ? "🎉 You qualify for 3x $TEOS bonus!" : "";
+      document.getElementById("bonus-msg").innerText = msg;
+    });
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>$TEOS Community Sale | TEOS Egypt</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
+  <style>
+    body { font-family: 'Inter', sans-serif; background: #0d0d0d; color: #fff; margin: 0; padding: 0; }
+    .container { max-width: 900px; margin: 0 auto; padding: 2rem; }
+    h1, h2 { color: #FFD700; }
+    .card { background: #1c1c1c; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; box-shadow: 0 0 20px rgba(255,215,0,0.1); }
+    a { color: #FFD700; text-decoration: none; }
+    .wallet { font-weight: bold; word-break: break-word; background: #333; padding: 0.5rem; border-radius: 8px; }
+    .btn { display: inline-block; padding: 10px 20px; margin-top: 1rem; background: #FFD700; color: #000; border-radius: 6px; font-weight: bold; cursor: pointer; }
+    .btn:disabled { background: #aaa; cursor: not-allowed; }
+    footer { text-align: center; margin-top: 3rem; font-size: 0.9rem; color: #aaa; }
+    ul { padding-left: 1.5rem; }
+    .countdown { font-size: 1.5rem; color: #00ffcc; margin-top: 10px; }
+    .form-section { display: flex; flex-direction: column; }
+    .form-section input { padding: 10px; border-radius: 6px; border: none; margin-bottom: 10px; }
+    #wallet-info { margin-top: 10px; font-size: 1rem; color: #00ffcc; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>$TEOS Community Contribution Pool</h1>
+
+    <div class="card">
+      <h2>🚀 Introduction</h2>
+      <p>$TEOS is the first Egyptian-built Web3 token on Solana, focused on empowering the next generation of decentralized builders and communities.</p>
+    </div>
+
+    <div class="card">
+      <h2>🪙 Connect Wallet</h2>
+      <button class="btn" onclick="connectWallet()">Connect Phantom Wallet</button>
+      <div id="wallet-info">Wallet not connected</div>
+    </div>
+
+    <div class="card">
+      <h2>📩 Join the Community Airdrop</h2>
+      <form class="form-section" id="airdrop-form">
+        <input type="email" name="email" placeholder="Your email address" required />
+        <input type="text" id="wallet" name="wallet" placeholder="Your Solana wallet" required />
+        <input type="number" name="amount" id="amount" placeholder="Contribution in USD" required min="0" />
+        <div id="bonus-msg" style="color:#00ffcc;"></div>
+        <button class="btn" type="submit">Register</button>
+      </form>
+    </div>
+
+    <div class="card">
+      <h2>🔗 Links</h2>
+      <p><a href="https://app.dexlab.space/token-hub/AhXBUQmbhv9dNoZCiMYmXF4Gyi1cjQthWHFhTL2CJaSo" target="_blank">Trade on Dexlab</a></p>
+      <p><a href="https://solscan.io/token/AhXBUQmbhv9dNoZCiMYmXF4Gyi1cjQthWHFhTL2CJaSo" target="_blank">View on Solscan</a></p>
+    </div>
+
+    <footer>
+      &copy; 2025 TEOS Egypt. All rights reserved.
+    </footer>
+  </div>
+
+  <script>
+    function connectWallet() {
+      if ('solana' in window) {
+        window.solana.connect().then(res => {
+          document.getElementById("wallet").value = res.publicKey.toString();
+          document.getElementById("wallet-info").innerText = "Connected: " + res.publicKey.toString();
+        }).catch(() => alert("Connection failed"));
+      } else {
+        alert("Phantom Wallet not found. Please install it.");
+      }
+    }
+
+    document.getElementById("amount").addEventListener("input", function () {
+      const amt = parseFloat(this.value);
+      const msg = amt >= 50 ? "🎉 You qualify for 3x $TEOS bonus!" : "";
+      document.getElementById("bonus-msg").innerText = msg;
+    });
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>$TEOS Community Sale | TEOS Egypt</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
+  <style>
+    body { font-family: 'Inter', sans-serif; background: #0d0d0d; color: #fff; margin: 0; padding: 0; }
+    .container { max-width: 900px; margin: 0 auto; padding: 2rem; }
+    h1, h2 { color: #FFD700; }
+    .card { background: #1c1c1c; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; box-shadow: 0 0 20px rgba(255,215,0,0.1); }
+    a { color: #FFD700; text-decoration: none; }
+    .wallet { font-weight: bold; word-break: break-word; background: #333; padding: 0.5rem; border-radius: 8px; }
+    .btn { display: inline-block; padding: 10px 20px; margin-top: 1rem; background: #FFD700; color: #000; border-radius: 6px; font-weight: bold; cursor: pointer; }
+    .btn:disabled { background: #aaa; cursor: not-allowed; }
+    footer { text-align: center; margin-top: 3rem; font-size: 0.9rem; color: #aaa; }
+    ul { padding-left: 1.5rem; }
+    .countdown { font-size: 1.5rem; color: #00ffcc; margin-top: 10px; }
+    .form-section { display: flex; flex-direction: column; }
+    .form-section input { padding: 10px; border-radius: 6px; border: none; margin-bottom: 10px; }
+    #wallet-info { margin-top: 10px; font-size: 1rem; color: #00ffcc; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>$TEOS Community Contribution Pool</h1>
+
+    <div class="card">
+      <h2>🚀 Introduction</h2>
+      <p>$TEOS is the first Egyptian-built Web3 token on Solana by Elmahrosa International , focused on empowering the next generation of decentralized builders and communities.</p>
+    </div>
+
+    <div class="card">
+      <h2>🪙 Connect Wallet</h2>
+      <button class="btn" onclick="connectWallet()">Connect Phantom Wallet</button>
+      <div id="wallet-info">Wallet not connected</div>
+    </div>
+
+    <div class="card">
+      <h2>📩 Join the Community Airdrop</h2>
+      <form class="form-section" id="airdrop-form">
+        <input type="email" name="email" placeholder="Your email address" required />
+        <input type="text" id="wallet" name="wallet" placeholder="Your Solana wallet" required />
+        <input type="number" name="amount" id="amount" placeholder="Contribution in USD" required min="0" />
+        <div id="bonus-msg" style="color:#00ffcc;"></div>
+        <button class="btn" type="submit">Register</button>
+      </form>
+    </div>
+
+    <div class="card">
+      <h2>🔗 Links</h2>
+      <p><a href="https://app.dexlab.space/token-hub/AhXBUQmbhv9dNoZCiMYmXF4Gyi1cjQthWHFhTL2CJaSo" target="_blank">Trade on Dexlab</a></p>
+      <p><a href="https://solscan.io/token/AhXBUQmbhv9dNoZCiMYmXF4Gyi1cjQthWHFhTL2CJaSo" target="_blank">View on Solscan</a></p>
+    </div>
+
+    <footer>
+      &copy; 2025 TEOS Egypt. All rights reserved.
+    </footer>
+  </div>
+
+  <script>
+    function connectWallet() {
+      if ('solana' in window) {
+        window.solana.connect().then(res => {
+          document.getElementById("wallet").value = res.publicKey.toString();
+          document.getElementById("wallet-info").innerText = "Connected: " + res.publicKey.toString();
+        }).catch(() => alert("Connection failed"));
+      } else {
+        alert("Phantom Wallet not found. Please install it.");
+      }
+    }
+
+    document.getElementById("amount").addEventListener("input", function () {
+      const amt = parseFloat(this.value);
+      const msg = amt >= 50 ? "🎉 You qualify for 3x $TEOS bonus!" : "";
+      document.getElementById("bonus-msg").innerText = msg;
+    });
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>$TEOS Community Sale | TEOS Egypt</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
+  <style>
+    body { font-family: 'Inter', sans-serif; background: #0d0d0d; color: #fff; margin: 0; padding: 0; }
+    .container { max-width: 900px; margin: 0 auto; padding: 2rem; }
+    h1, h2 { color: #FFD700; }
+    .card { background: #1c1c1c; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; box-shadow: 0 0 20px rgba(255,215,0,0.1); }
+    a { color: #FFD700; text-decoration: none; }
+    .wallet { font-weight: bold; word-break: break-word; background: #333; padding: 0.5rem; border-radius: 8px; }
+    .btn { display: inline-block; padding: 10px 20px; margin-top: 1rem; background: #FFD700; color: #000; border-radius: 6px; font-weight: bold; cursor: pointer; }
+    .btn:disabled { background: #aaa; cursor: not-allowed; }
+    footer { text-align: center; margin-top: 3rem; font-size: 0.9rem; color: #aaa; }
+    ul { padding-left: 1.5rem; }
+    .countdown { font-size: 1.5rem; color: #00ffcc; margin-top: 10px; }
+    .form-section { display: flex; flex-direction: column; }
+    .form-section input { padding: 10px; border-radius: 6px; border: none; margin-bottom: 10px; }
+    #wallet-info { margin-top: 10px; font-size: 1rem; color: #00ffcc; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>$TEOS Community Contribution Pool</h1>
+
+    <div class="card">
+      <h2>🚀 Introduction</h2>
+      <p>$TEOS is the first Egyptian-built Web3 token on Solana, focused on empowering the next generation of decentralized builders and communities.</p>
+    </div>
+
+    <div class="card">
+      <h2>🪙 Connect Wallet</h2>
+      <button class="btn" onclick="connectWallet()">Connect Phantom Wallet</button>
+      <div id="wallet-info">Wallet not connected</div>
+    </div>
+
+    <div class="card">
+      <h2>📩 Join the Community Airdrop</h2>
+      <form class="form-section" id="airdrop-form">
+        <input type="email" name="email" placeholder="Your email address" required />
+        <input type="text" id="wallet" name="wallet" placeholder="Your Solana wallet" required />
+        <input type="number" name="amount" id="amount" placeholder="Contribution in USD" required min="0" />
+        <div id="bonus-msg" style="color:#00ffcc;"></div>
+        <button class="btn" type="submit">Register</button>
+      </form>
+    </div>
+
+    <div class="card">
+      <h2>🔗 Links</h2>
+      <p><a href="https://app.dexlab.space/token-hub/AhXBUQmbhv9dNoZCiMYmXF4Gyi1cjQthWHFhTL2CJaSo" target="_blank">Trade on Dexlab</a></p>
+      <p><a href="https://solscan.io/token/AhXBUQmbhv9dNoZCiMYmXF4Gyi1cjQthWHFhTL2CJaSo" target="_blank">View on Solscan</a></p>
+    </div>
+
+    <footer>
+      &copy; 2025 TEOS Egypt. All rights reserved.
+    </footer>
+  </div>
+
+  <script>
+    function connectWallet() {
+      if ('solana' in window) {
+        window.solana.connect().then(res => {
+          document.getElementById("wallet").value = res.publicKey.toString();
+          document.getElementById("wallet-info").innerText = "Connected: " + res.publicKey.toString();
+        }).catch(() => alert("Connection failed"));
+      } else {
+        alert("Phantom Wallet not found. Please install it.");
+      }
+    }
+
+    document.getElementById("amount").addEventListener("input", function () {
+      const amt = parseFloat(this.value);
+      const msg = amt >= 50 ? "🎉 You qualify for 3x $TEOS bonus!" : "";
+      document.getElementById("bonus-msg").innerText = msg;
+    });
+  </script>
+</body>
+</html>
